@@ -1,0 +1,18 @@
+﻿@model CheckListApp.Models.Item
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Checklist</title>
+</head>
+<body>
+    <h1>Add new Item</h1>
+        @using (Html.BeginForm("/add", "home"))
+        {
+            <p>Item</p>
+            @Html.TextBoxFor(model => model.Name)<br/>
+            <p>Race Category</p>
+            @Html.DropDownListFor(model => model.RaceCategory, Enum.GetNames(typeof(CheckListApp.Models.RaceCategory)).Select(e => new SelectListItem { Text = e }))
+            <input class="button" type="submit" value="Add">
+        }
+</body>
+</html>

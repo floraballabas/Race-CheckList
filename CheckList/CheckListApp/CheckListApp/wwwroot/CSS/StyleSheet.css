@@ -1,0 +1,26 @@
+﻿body {
+    background-image: url(http://www.bearrabbitstudio.com/wp-content/uploads/2016/08/ironman-logo.jpg);
+    background-size:cover;
+}
+table {
+    background-color: none;
+    border-style: solid;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    border: solid 1px black;
+    padding: 5px;
+}
+
+table tr:first-child td {
+    font-size: x-large;
+    padding: 15px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 20px;
+}

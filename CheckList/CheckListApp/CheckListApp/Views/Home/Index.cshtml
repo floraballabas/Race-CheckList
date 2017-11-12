@@ -1,0 +1,43 @@
+﻿@model ICollection<CheckListApp.Models.Item>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/CSS/StyleSheet.css")" />
+</head>
+<body>
+    <h1>Race Checklist</h1>
+    <h2><a href="/add">Add new Item</a></h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Item</th>
+            <th>Race Category</th>
+            <th>Packed already?</th>
+            <td>Delete Item</td>
+            <td>Update Item</td>
+        </tr>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.RaceCategory</td>
+                <td>@item.IsPacked</td>
+                <td>
+                    <form action="/(@item.Id)/delete" method="post">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button id="table" class="number" type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/(@item.Id)/update" method="get">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button id="table" class="number" type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

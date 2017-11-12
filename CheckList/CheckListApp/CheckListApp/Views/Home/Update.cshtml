@@ -1,0 +1,20 @@
+﻿@model CheckListApp.Models.Item
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Update your Item</h1>
+    @using (Html.BeginForm("update", "home"))
+    {
+        <input type="hidden" name="Id" value="@Model.Id">
+        <p>Item name: </p>@Html.TextBoxFor(x => x.Name)<br />
+        <p>Race Category: </p>@Html.DropDownListFor(model => model.RaceCategory, Enum.GetNames(typeof(CheckListApp.Models.RaceCategory)).Select(e => new SelectListItem { Text = e }))<br />
+        <p>Did you pack it? </p>@Html.CheckBoxFor(x => x.IsPacked)<br />
+        <button type="submit">Submit</button>
+    }
+    <h2><a href="">Cancel</a></h2>
+</body>
+</html>
+
