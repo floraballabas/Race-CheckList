@@ -21,7 +21,7 @@ namespace CheckListApp
         {
             services.AddMvc();
             services.AddScoped<ItemRepository>();
-            services.AddDbContext<ItemContext>(options => options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = checklistmaster; Integrated Security = True; Connect Timeout = 30;"));
+            services.AddDbContext<ItemContext>(options => options.UseNpgsql(@"User ID=aqgrxoyydcjmqj;Password=c8625ad84f909ef3d79d356448be6b87d188e8690cf3947a091e527690a85956;Host=ec2-54-247-120-234.eu-west-1.compute.amazonaws.com;Port=5432;Database=d859anc5babg4d;Pooling=true;sslmode=Require;Trust Server Certificate=true;Timeout=1000;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +36,11 @@ namespace CheckListApp
 
             app.UseMvc();
             app.UseStaticFiles();
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
         }
     }
 }

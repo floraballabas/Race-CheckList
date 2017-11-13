@@ -9,14 +9,14 @@ using CheckListApp.Models;
 namespace CheckListApp.Migrations
 {
     [DbContext(typeof(ItemContext))]
-    [Migration("20171112140659_initialMigration")]
-    partial class initialMigration
+    [Migration("20171113131246_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.3")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "1.1.3");
 
             modelBuilder.Entity("CheckListApp.Models.Item", b =>
                 {
